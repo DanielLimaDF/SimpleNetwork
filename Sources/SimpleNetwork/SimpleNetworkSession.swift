@@ -12,7 +12,7 @@ public class SimpleNetworkSession {
     private let urlSession: URLSession
     private let logger: Logger
 
-    init() {
+    public init() {
         urlSession = URLSession(
             configuration: URLSessionConfiguration.default,
             delegate: nil,

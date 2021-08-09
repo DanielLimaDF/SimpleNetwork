@@ -11,4 +11,5 @@ public enum NetworkError: Error {
     case parseFailed
     case defaultError(error: Error)
     case noContent
+    case invalidURL
 }
