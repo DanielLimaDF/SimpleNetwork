@@ -9,11 +9,11 @@ import Foundation
 
 public class SimpleNetworkSession {
 
-    private let urlSession: URLSession
-    private let logger: Logger
+    internal let urlSession: URLSession
+    internal let logger: Logger
 
-    public init() {
-        urlSession = URLSession(
+    public init(session: URLSession? = nil) {
+        urlSession = session ?? URLSession(
             configuration: URLSessionConfiguration.default,
             delegate: nil,
             delegateQueue: OperationQueue()
