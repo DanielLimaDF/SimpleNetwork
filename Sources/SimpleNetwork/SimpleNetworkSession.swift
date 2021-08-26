@@ -11,8 +11,10 @@ public class SimpleNetworkSession {
 
     internal let urlSession: URLSession
     internal let logger: Logger
+    internal let basicCredentials: String
 
-    public init(session: URLSession? = nil) {
+    public init(session: URLSession? = nil, basicAuthorization: String) {
+        basicCredentials = basicAuthorization
         urlSession = session ?? URLSession(
             configuration: URLSessionConfiguration.default,
             delegate: nil,
@@ -24,7 +26,8 @@ public class SimpleNetworkSession {
     internal func send(request: Requestable, completion: @escaping NetworkResponse) {
 
         do {
-            let urlRequest = try request.urlRequest()
+            var urlRequest = try request.urlRequest()
+            urlRequest.setValue(basicCredentials, forHTTPHeaderField: "Authorization")
 
             let task = urlSession.dataTask(with: urlRequest) { [weak self] data, response, error in
                 self?.logger.logRequestResponse(request: urlRequest, data: data, response: response, error: error)
