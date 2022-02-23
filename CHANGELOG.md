@@ -1,6 +1,12 @@
 Change Log
 ==========
 
+Version 0.0.5 *(2022-02-22)*
+----------------------------
+
+* Fix issue - Fix extension access modifier
+* Improvement - Add test cases
+
 Version 0.0.4 *(2022-02-22)*
 ----------------------------
 
